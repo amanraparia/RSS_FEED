@@ -1,44 +1,42 @@
 import feedparser
-import sqlite3
 
 
 
-stories= []
-count = 0
-i = 0
-count = int (count)
+urls = []
 
+config = open("config.txt","r")
 
-myfeed = feedparser.parse ("http://timesofindia.indiatimes.com//rssfeedstopstories.cms")
+feed_urls = config.readlines()
+feed_urls.pop()
 
+for feed_url in feed_urls :
 
-length = len (myfeed.entries)
+	feed_url = feed_url.split("=")[1]
+	urls.append (feed_url.split("\n")[0])
 
+for url in urls :
 
-
-
-while (length > count) :
-
-		stories.append(myfeed.entries[count].title)
-		count = count + 1
-
-
-
-print (stories)
-print ("------------------------------------------------")
- 
-while (i == 0) :
-
+	myfeed = feedparser.parse (url)
+	
 	for post in myfeed.entries :
 
-		if post not in stories :
-
-			stories.append (post.title)
-			break
+		print (post.title)
 
 
-print ("---------------- Block 2--------------------------")
-print (stories)
+		
+
+
+
+	
+	
+
+
+
+
+
+
+
+
 		  
 
 	
