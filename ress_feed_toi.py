@@ -1,25 +1,17 @@
 import feedparser
 
-
-
 urls = []
 
 config = open("config.txt","r")
 
 feed_urls = config.readlines()
-print (feed_urls)
-
 if feed_urls [-1] == "\n" :
 
 	feed_urls.pop()
 
-
 for feed_url in feed_urls :
 
-	feed_url = feed_url.split("=")[1]
-	urls.append (feed_url.split("\n")[0])
-
-print(urls)
+	urls.append (feed_url.split("\n")[0].split("=")[1])
  	
 for url in urls :
 
