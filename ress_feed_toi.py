@@ -8,7 +8,6 @@ config = open("config.txt","r")
 
 feed_urls = config.readlines()
 print (feed_urls)
-print("-----------------------------")
 feed_urls.pop()
 
 
@@ -18,7 +17,6 @@ for feed_url in feed_urls :
 	urls.append (feed_url.split("\n")[0])
 
 print(urls)
-print ("-----------------------------")
  	
 for url in urls :
 
