@@ -8,7 +8,10 @@ config = open("config.txt","r")
 
 feed_urls = config.readlines()
 print (feed_urls)
-feed_urls.pop()
+
+if feed_urls [-1] == "\n" :
+
+	feed_urls.pop()
 
 
 for feed_url in feed_urls :
