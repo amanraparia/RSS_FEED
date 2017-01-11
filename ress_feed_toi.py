@@ -7,13 +7,19 @@ urls = []
 config = open("config.txt","r")
 
 feed_urls = config.readlines()
+print (feed_urls)
+print("-----------------------------")
 feed_urls.pop()
+
 
 for feed_url in feed_urls :
 
 	feed_url = feed_url.split("=")[1]
 	urls.append (feed_url.split("\n")[0])
 
+print(urls)
+print ("-----------------------------")
+ 	
 for url in urls :
 
 	myfeed = feedparser.parse (url)
@@ -21,6 +27,8 @@ for url in urls :
 	for post in myfeed.entries :
 
 		print (post.title)
+	
+	print ("-------------------------")
 
 
 		
